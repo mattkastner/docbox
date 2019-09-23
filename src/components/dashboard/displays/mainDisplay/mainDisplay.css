@@ -1,0 +1,20 @@
+.cert-link:hover {
+    text-decoration: underline;
+}
+
+#black {
+    color: black;
+}
+
+#orange {
+    color: orange;
+}
+
+#red {
+    color: red;
+}
+
+.backdrop{
+
+    border-radius: 60%;
+}

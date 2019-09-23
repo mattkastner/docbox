@@ -1,0 +1,38 @@
+.hospital-link:hover {
+    text-decoration: underline;
+}
+
+.title-addhospital {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.edit-title{
+    display: flex;
+    align-items: center;
+}
+
+.add-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.add-link {
+    display: flex;
+}
+
+.add {
+    margin-right: 6px;
+}
+
+.add-btn:hover {
+    text-decoration: underline;
+}
+
+.edit {
+    margin-left: .2em;
+    margin-bottom: .3em;
+}

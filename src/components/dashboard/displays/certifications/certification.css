@@ -1,0 +1,24 @@
+.cert-link:hover {
+    text-decoration: underline;
+}
+
+.title-addcertification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+}
+
+.add {
+    margin-right: 6px;
+}
+
+.add-btn:hover {
+    text-decoration: underline;
+}

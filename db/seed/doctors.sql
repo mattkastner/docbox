@@ -1,0 +1,21 @@
+CREATE TABLE doctors (
+    id SERIAL PRIMARY KEY,
+    hospital_id INTEGER REFERENCES hospitals(id),
+    first_name TEXT,
+    last_name TEXT,
+    profile_img BYTEA,
+    address_line TEXT,
+    city TEXT,
+    state TEXT,
+    zip TEXT,
+    country TEXT,
+    email TEXT,
+    phone TEXT,
+    undergraduate_college TEXT,
+    undergraduate_degree TEXT,
+    graduate_college TEXT,
+    graduate_degree TEXT,
+    residency_clinic TEXT,
+    board_certification_exam TEXT,
+    board_certification_id TEXT
+)
