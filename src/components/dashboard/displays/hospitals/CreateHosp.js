@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {Grid, Avatar, Container, Button, CssBaseline, TextField, Typography} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import ApartmentIcon from '@material-ui/icons/Apartment'

@@ -1,9 +1,9 @@
 const create = async (req, res) => {
     //desctruct the hospital values
-    let {name, address_line, city, state, zip, country} = req.body
+    let {name, address, city, state, zip, country, email} = req.body
     //get access to the sql files
     const db = req.app.get('db')
-    const updatedHospitals = await db.hospital.add_hospital([name, address_line, city, state, zip, country])
+    const updatedHospitals = await db.hospital.add_hospital([name, address, city, state, zip, country, email])
     //an array of hospitals will be passed back send that to the front-end
     return res.status(200).send(updatedHospitals)
 }

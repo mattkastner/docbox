@@ -7,6 +7,7 @@ import Container from '@material-ui/core/Container';
 import WidgetsIcon from '@material-ui/icons/Widgets'
 
 import {connect} from 'react-redux'
+import {updateUser} from '../../redux/reducers/mainReducer'
 
 import axios from 'axios'
 import {withRouter} from 'react-router-dom'
@@ -85,6 +86,9 @@ function SignIn(props) {
     event.preventDefault()
     console.log('submit')
     axios.post('/auth/login', {email, password}).then(res => {
+      console.log(res.data)
+      props.updateUser(res.data)
+      console.log(props.main.userTitle)
       console.log(props.history)
       console.log('push to "/"')
       props.history.push('/')
@@ -174,4 +178,4 @@ function mapStateToProps(state){
   return state
 }
 
-export default withRouter(connect(mapStateToProps)(SignIn))
+export default withRouter(connect(mapStateToProps, {updateUser})(SignIn))

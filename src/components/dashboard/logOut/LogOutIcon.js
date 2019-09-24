@@ -6,9 +6,12 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 
 import axios from 'axios'
 
+import {clearUser} from '../../../redux/reducers/mainReducer'
+import {connect} from 'react-redux'
+
 import './logout.css'
 
-function LogOut(props) {
+function LogOutIcon(props) {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -18,6 +21,7 @@ function LogOut(props) {
 
   function logOut(event) {
     axios.delete('/auth/logout').then(() => {
+      props.clearUser()
       props.history.push('/sign_in')
       handleClose(event)
     })
@@ -60,4 +64,9 @@ function LogOut(props) {
   );
 }
 
-export default withRouter(LogOut)
+
+function mapStateToProps(state){
+  return state
+}
+
+export default withRouter(connect(mapStateToProps, {clearUser})(LogOutIcon))

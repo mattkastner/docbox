@@ -6,20 +6,20 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MainNav from './leftNav/MainNav';
 import SecondaryNav from './leftNav/SecondaryNav';
-import LogoutIcon from './logOut/LogOutIcon'
 
 import WidgetsIcon from '@material-ui/icons/Widgets'
 
 import {withRouter} from 'react-router-dom'
 
 import {connect} from 'react-redux'
-import {updateDisplay} from '../../redux/reducers/mainReducer'
+import {updateDisplay, updateUser} from '../../redux/reducers/mainReducer'
 
 import axios from 'axios'
 // import SearchBar from 'material-ui-search-bar'
 import router from './routes'
 
 import '../additional.css'
+import LogOutIcon from './logOut/LogOutIcon';
 
 function Copyright() {
   return (
@@ -158,17 +158,17 @@ function Dashboard(props) {
   const [open, setOpen] = useState(false);
 
   // const [searchInput, setSearchInput] = useState('');
-  const getVerification = async () => {
-    const res = await axios.get('/auth/verify')
-    console.log("res", res)
-    if(res.data === 'admin' || res.data === 'manager'){
-      console.log('is an admin')
+  const getVerification = () => {
+    if(props.main.userTitle === 'admin' || props.main.userTitle === 'manager'){
+      console.log('user is admin')
     } else {
+      console.log("res in else", props.main.userTitle)
       props.history.push('/sign_in')
     }
   }
 
   useEffect(() => {
+    console.log('use Effect')
     getVerification()
   }, [])
 
@@ -196,7 +196,7 @@ function Dashboard(props) {
           <WidgetsIcon />
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}> docbox
           </Typography>
-          <LogoutIcon />
+          <LogOutIcon />
         </Toolbar>
       </AppBar>
       <Drawer
@@ -246,4 +246,4 @@ function mapStateToProps(state){
   return state
 }
 
-export default withRouter(connect(mapStateToProps, {updateDisplay})(Dashboard))
+export default withRouter(connect(mapStateToProps, {updateDisplay, updateUser})(Dashboard))

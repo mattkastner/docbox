@@ -22,7 +22,7 @@ function MainDisplay(props) {
     axios.get('/api/all/doctor/certification').then(res => {
       setRows(res.data)
     })
-  },[rows[0] && rows[0].certification_name])
+  }, [])
   return (
     <>
       <Title>Expiring Certifications</Title>
@@ -37,8 +37,8 @@ function MainDisplay(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.id} className="cert-link" onClick={() => props.history.push(`certifications/${row.id}`)}>
+          {rows.map((row, i) => (
+            <TableRow key={i} className="cert-link" onClick={() => props.history.push(`certifications/${row.id}`)}>
               <TableCell>{moment(row.certification_exp).format('MMMM Do YYYY')}</TableCell>
               <TableCell>{row.certification_name}</TableCell>
               <TableCell>{row.certification_desc}</TableCell>

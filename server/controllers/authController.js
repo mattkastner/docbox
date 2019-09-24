@@ -35,7 +35,7 @@ const login = async (req, res) => {
         delete foundUser[0].password
         //store user onto the session
         req.session.user = foundUser[0]
-        res.sendStatus(200)
+        res.status(200).send(foundUser[0].title)
         
     } else {
         console.log('failed login')

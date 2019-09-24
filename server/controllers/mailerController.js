@@ -17,10 +17,7 @@ const sendEmail = (req, res) => {
         }
     })
 
-    let emailText = `<p>Hello, the link provided below will give you access to a form to fill out your general infomation.</p>
-    <p>You will be asked to take pictures of any certifications that are required for your medical practice.</p>
-    <br/>
-    <p>Click this link <a href="${signUpURL}">Sign Up</a>.</p>`
+    let emailText = `Hello ${firstName}, here is the link to sign in: ${signUpURL}`
     // Step 2
     let mailOptions = {
         from: EMAIL,
